@@ -2549,8 +2549,8 @@ namespace Gst {
 		public weak uint8[] data;
 		public size_t size;
 		public size_t maxsize;
-		[CCode (array_length = false, array_null_terminated = true)]
-		public weak void*[] user_data;
+		[CCode (array_length = false)]
+		public weak void* user_data[4];
 	}
 	[CCode (cheader_filename = "gst/gst.h", has_type_id = false)]
 	public struct Meta {
@@ -2586,8 +2586,8 @@ namespace Gst {
 		public void* data;
 		public uint64 offset;
 		public uint size;
-		[CCode (array_length = false, array_null_terminated = true, cname = "ABI._gst_reserved")]
-		public weak void*[] ABI__gst_reserved;
+		[CCode (array_length = false, cname = "ABI._gst_reserved")]
+		public weak void* ABI__gst_reserved[4];
 		[CCode (cname = "ABI.abi.flow_ret")]
 		public Gst.FlowReturn ABI_abi_flow_ret;
 		public unowned Gst.Buffer get_buffer ();
