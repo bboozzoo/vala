@@ -172,6 +172,11 @@ namespace GLib {
 		public void set_callback ([CCode (type = "GSourceFunc")] owned SocketSourceFunc func);
 	}
 
+	public class Socket : GLib.Object, GLib.DatagramBased, GLib.Initable {
+		[CCode (cname = "g_socket_create_source")]
+		public GLib.SocketSource create_socket_source (GLib.IOCondition condition, GLib.Cancellable? cancellable = null);
+	}
+
 	public class SocketConnection : GLib.IOStream {
 		public static GLib.SocketConnection factory_create_connection (GLib.Socket socket);
 	}
